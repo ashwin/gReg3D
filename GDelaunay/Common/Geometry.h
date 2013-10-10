@@ -40,6 +40,7 @@ DAMAGE.
 #include "STLWrapper.h"
 #include "CudaWrapper.h"
 #include "ThrustWrapper.h"
+#include <float.h>
 
 #ifdef REAL_TYPE_FP32
 typedef float RealType;

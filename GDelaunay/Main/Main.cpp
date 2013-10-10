@@ -61,8 +61,8 @@ int main( int argc, const char* argv[] )
     // Parse input arguments
     ////
 
-    cout << "Syntax: GDelaunay [-n PointNum] [-g GridSize] [-s Seed] [-r Max] [-d Distribution] [-f FacetMax] [-w WeightMax] [-verbose] [-stats] [-timing] [-check]" << endl; 
-    cout << "Distribution: 0:Uniform, 1:Gaussian, 2: Ball, 3: Sphere, 4: Grid" << endl; 
+    cout << "Syntax: greg3d [-n PointNum] [-g GridSize] [-s Seed] [-r Max] [-d Distribution] [-f FacetMax] [-w WeightMax] [-verbose] [-stats] [-timing] [-check]" << endl; 
+    cout << "Distribution: 0: Uniform, 1: Gaussian, 2: Ball, 3: Sphere, 4: Grid" << endl << endl;
 
     int idx = 1;
 

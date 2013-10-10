@@ -116,7 +116,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#ifdef _WIN32
 #include <float.h>
+#else
+#include <fpu_control.h>
+#endif
 
 /* On some machines, the exact arithmetic routines might be defeated by the  */
 /*   use of internal extended precision floating-point registers.  Sometimes */
@@ -393,11 +397,21 @@ void exactinit()
   REAL check, lastcheck;
   int every_other;
 
+#ifdef _WIN32
 #ifdef REAL_TYPE_FP32
   _control87(_PC_24, _MCW_PC); /* Set FPU control word for single precision. */
 #else /* not SINGLE */
   _control87(_PC_53, _MCW_PC); /* Set FPU control word for double precision. */
 #endif /* not SINGLE */
+#else
+  int cword;
+#ifdef REAL_TYPE_FP32
+  cword = 4210;                 /* set FPU control word for single precision */
+#else /* not SINGLE */
+  cword = 4722;                 /* set FPU control word for double precision */
+#endif /* not SINGLE */
+  _FPU_SETCW(cword);
+#endif
 
   every_other = 1;
   half = 0.5;

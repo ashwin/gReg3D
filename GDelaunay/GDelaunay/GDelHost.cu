@@ -65,6 +65,16 @@ bool LogMemory  = false;
 
 HostTimer containerTimer;
 
+inline void cuPrintMemory( const string& inStr )
+{
+    size_t free;
+    size_t total;
+    const int MegaByte = ( 1 << 20 );
+    CudaSafeCall( cudaMemGetInfo( &free, &total ) );
+    cout << "[" << inStr << "] Memory used (MB): " << ( total - free ) / MegaByte << endl;
+    return;
+}
+
 ///////////////////////////////////////////////////////////////// Memory Pool //
 
 int PoolBlockSize = -1; 
@@ -348,16 +358,6 @@ typedef IntDVec::iterator                       IntDIter;
 typedef thrust::tuple< int, int >               IntTuple2;
 typedef thrust::tuple< IntDIter, IntDIter >     IntDIterTuple2;
 typedef thrust::zip_iterator< IntDIterTuple2 >  ZipDIter;
-
-void cuPrintMemory( const string& inStr )
-{
-    size_t free;
-    size_t total;
-    const int MegaByte = ( 1 << 20 );
-    CudaSafeCall( cudaMemGetInfo( &free, &total ) );
-    cout << "[" << inStr << "] Memory used (MB): " << ( total - free ) / MegaByte << endl;
-    return;
-}
 
 struct PointData
 {
