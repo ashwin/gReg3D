@@ -57,9 +57,6 @@
     <ClCompile Include="Common\DtRandom.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="Common\PerfTimer.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
     <ClCompile Include="Common\predicates.c">
       <Filter>Common</Filter>
     </ClCompile>
