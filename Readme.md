@@ -45,8 +45,8 @@ To build and execute using CMake:
 Documentation
 =============
 
-Chapter 8 of my [PhD thesis](http://ash.daariga.com/papers/gdel3d-thesis.pdf)
-explains the gReg3D algorithm in detail.
+Chapter 8 of my [PhD thesis](gdel3d_thesis.pdf) describes the details of the
+gReg3D algorithm.
 
 Reference
 =========
